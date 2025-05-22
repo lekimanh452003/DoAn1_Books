@@ -1,0 +1,980 @@
+﻿@model IEnumerable<Product>
+@{
+    int productCount = 0;
+}
+
+<body class="index-page">
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section light-background">
+
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
+        <h1>Chào mừng đến với <span>MusicRent</span></h1>
+        <p>Hệ thống quản lý và cho thuê đĩa nhạc hiện đại – đơn giản, nhanh chóng, hiệu quả</p>
+        <div class="d-flex">
+          <a href="#about" class="btn-get-started">Khám phá ngay</a>
+          <a href="https://www.youtube.com/watch?v=w9eLejhZeX0"
+            class="glightbox btn-watch-video d-flex align-items-center">
+            <i class="bi bi-play-circle"></i><span>Xem video giới thiệu</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+    
+    <!-- Featured Services Section -->
+    <section id="featured-services" class="featured-services section">
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-activity icon"></i></div>
+              <h4><a href="" class="stretched-link">Bộ sưu tập đĩa nhạc mới</a></h4>
+              <p>Khám phá những album CD và vinyl mới nhất được cập nhật trong hệ thống cho thuê của chúng tôi</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
+              <h4><a href="" class="stretched-link">Quản lý đĩa nhạc thông minh</a></h4>
+              <p>Dễ dàng thêm, chỉnh sửa và theo dõi tình trạng đĩa nhạc</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
+              <h4><a href="" class="stretched-link">Dịch vụ cho thuê nhanh chóng</a></h4>
+              <p>Đăng ký và mượn đĩa chỉ với vài thao tác đơn giản</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-broadcast icon"></i></div>
+              <h4><a href="" class="stretched-link">Bộ sưu tập nổi bật</a></h4>
+              <p>Những đĩa nhạc được thuê nhiều nhất, bạn không nên bỏ lỡ!</p>
+            </div>
+          </div><!-- End Service Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Featured Services Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Giới Thiệu</h2>
+        <p><span>Tìm Hiểu Thêm</span> <span class="description-title">Về Chúng Tôi</span></p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-3">
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+             <img src="/assets/img/about.jpg" alt="" class="img-fluid">
+          </div>
+
+          <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="about-content ps-0 ps-lg-3">
+              <h3>Chúng tôi cung cấp dịch vụ cho thuê đĩa nhạc chất lượng cao với nhiều thể loại phong phú</h3>
+              <p class="fst-italic">
+               Với kho đĩa đa dạng, từ nhạc cổ điển đến nhạc hiện đại, chúng tôi cam kết mang lại trải nghiệm âm nhạc tuyệt vời và dễ dàng cho bạn. Dịch vụ cho thuê đĩa của chúng tôi luôn hướng đến sự thuận tiện và sự hài lòng tối đa cho khách hàng.</p>
+
+              <ul>
+                <li>
+                  <i class="bi bi-diagram-3"></i>
+                  <div>
+                    <h4>Với quy trình đơn giản và nhanh chóng, bạn sẽ dễ dàng tìm và thuê được những đĩa nhạc yêu thích.</h4>
+                    <p>Chúng tôi cung cấp một giao diện dễ sử dụng, cho phép bạn tìm kiếm và lựa chọn đĩa nhạc theo thể loại, nghệ sĩ hoặc album. Từ những bản hit mới nhất đến những album kinh điển, tất cả đều có sẵn để bạn khám phá.</p>
+                  </div>
+                </li>
+                <li>
+                  <i class="bi bi-fullscreen-exit"></i>
+                  <div>
+                    <h4>Hãy tận hưởng âm nhạc mọi lúc mọi nơi, với dịch vụ cho thuê đĩa linh hoạt và giá cả hợp lý.</h4>
+                    <p>Chúng tôi cung cấp các gói cho thuê đĩa ngắn hạn hoặc dài hạn, giúp bạn có thể thoải mái chọn lựa theo nhu cầu sử dụng âm nhạc của mình. Dịch vụ cho thuê đĩa của chúng tôi cam kết cung cấp cho bạn chất lượng âm nhạc vượt trội và sự tiện lợi tối đa.</p>
+                  </div>
+                </li>
+              </ul>
+              <p>
+               Chúng tôi luôn sẵn sàng hỗ trợ bạn trong việc tìm kiếm những giai điệu yêu thích và đáp ứng mọi yêu cầu của khách hàng.
+Với đội ngũ chăm sóc khách hàng chuyên nghiệp, bạn sẽ luôn được hỗ trợ trong suốt quá trình sử dụng dịch vụ. Chúng tôi luôn đảm bảo rằng mọi đĩa nhạc được cho thuê đều có chất lượng tốt nhất để bạn có thể thưởng thức âm nhạc một cách hoàn hảo.</p>
+             
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+    <!-- Skills Section -->
+    <section id="skills" class="skills section">
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="row skills-content skills-animation">
+
+                <div class="col-lg-6">
+
+                    <div class="progress">
+                            <span class="skill"><span>Kho đĩa nhạc phong phú</span> <i class="val">100%</i></span>
+                        <div class="progress-bar-wrap">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                            </div>
+                        </div>
+                    </div><!-- End Skills Item -->
+
+                    <div class="progress">
+                            <span class="skill"><span>Dễ dàng thuê và trả</span> <i class="val">90%</i></span>
+                        <div class="progress-bar-wrap">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                            </div>
+                        </div>
+                    </div><!-- End Skills Item -->
+
+                    <div class="progress">
+                            <span class="skill"><span>Gợi ý nhạc theo sở thích</span> <i class="val">75%</i></span>
+                        <div class="progress-bar-wrap">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                            </div>
+                        </div>
+                    </div><!-- End Skills Item -->
+
+                </div>
+
+                <div class="col-lg-6">
+
+                    <div class="progress">
+                            <span class="skill"><span>Nhắc nhở trả đĩa đúng hạn</span> <i class="val">80%</i></span>
+                        <div class="progress-bar-wrap">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                            </div>
+                        </div>
+                    </div><!-- End Skills Item -->
+
+                    <div class="progress">
+                            <span class="skill"><span>Hỗ trợ nhanh chóng 24/7</span> <i class="val">90%</i></span>
+                        <div class="progress-bar-wrap">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                            </div>
+                        </div>
+                    </div><!-- End Skills Item -->
+
+                    <div class="progress">
+                            <span class="skill"><span>Ưu đãi thành viên thân thiết</span> <i class="val">55%</i></span>
+                        <div class="progress-bar-wrap">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+                            </div>
+                        </div>
+                    </div><!-- End Skills Item -->
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section><!-- /Skills Section -->
+
+    <!-- Stats Section -->
+    <section id="stats" class="stats section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+            <i class="bi bi-emoji-smile"></i>
+            <div class="stats-item">
+              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
+                class="purecounter"></span>
+              <p>Khách Hàng Thân Thiết</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+            <i class="bi bi-journal-richtext"></i>
+            <div class="stats-item">
+              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
+                class="purecounter"></span>
+              <p>Đĩa Nhạc Được Thuê</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+            <i class="bi bi-headset"></i>
+            <div class="stats-item">
+              <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1"
+                class="purecounter"></span>
+              <p>Giờ Hỗ Trợ Khách Hàng</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+            <i class="bi bi-people"></i>
+            <div class="stats-item">
+              <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1"
+                class="purecounter"></span>
+              <p>Nhân Viên Nhiệt Huyết</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Stats Section -->
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Dịch Vụ</h2>
+        <p><span>Khám phá</span> <span class="description-title">Dịch vụ của chúng tôi</span></p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-activity"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>Cho Thuê Đĩa Nhạc Theo Ngày</h3>
+              </a>
+              <p>Cung cấp đĩa nhạc đa dạng thể loại, từ cổ điển đến hiện đại. Thủ tục nhanh chóng, dễ dàng và tiện lợi cho mọi đối tượng khách hàng.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-broadcast"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>Đặt Đĩa Trực Tuyến</h3>
+              </a>
+              <p>Cho phép khách hàng tìm kiếm và đặt trước đĩa nhạc yêu thích qua hệ thống trực tuyến. Tiết kiệm thời gian và đảm bảo có đĩa khi cần.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-easel"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>Giao Nhận Tận Nơi</h3>
+              </a>
+              <p>Dịch vụ giao và nhận đĩa tận nhà giúp bạn trải nghiệm âm nhạc phong cách cổ điển mà không cần di chuyển. Phục vụ nhanh, đúng giờ.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-bounding-box-circles"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>Gói Hội Viên Ưu Đãi</h3>
+              </a>
+              <p>Đăng ký làm hội viên để nhận ưu đãi dài hạn như thuê đĩa không giới hạn, ưu tiên đặt đĩa mới, và tích điểm đổi quà.</p>
+              <a href="#" class="stretched-link"></a>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-calendar4-week"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>Tư Vấn Âm Nhạc Cá Nhân</h3>
+              </a>
+              <p>Đội ngũ chuyên môn hỗ trợ bạn lựa chọn đĩa nhạc theo sở thích cá nhân, dịp đặc biệt hoặc phong cách yêu thích.</p>
+              <a href="#" class="stretched-link"></a>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-chat-square-text"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>Hỗ Trợ Kỹ Thuật & Chăm Sóc Khách Hàng</h3>
+              </a>
+              <p>Luôn sẵn sàng hỗ trợ bạn trong quá trình sử dụng dịch vụ, từ xử lý lỗi đĩa đến hướng dẫn sử dụng hệ thống đặt đĩa.</p>
+              <a href="#" class="stretched-link"></a>
+            </div>
+          </div><!-- End Service Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+    <!-- Testimonials Section -->
+
+        <section id="testimonials" class="testimonials section" style="background: color-mix(in srgb, var(--accent-color), transparent 90%);">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="swiper init-swiper">
+            <script type="application/json" class="swiper-config">
+            {
+                "loop": true,
+                "speed": 600,
+                "autoplay": {
+                    "delay": 5000
+                },
+                "slidesPerView": "auto",
+                "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets",
+                    "clickable": true
+                }
+            }
+            </script>
+       
+            <div class="swiper-wrapper">
+                @foreach (var product in Model)
+                {
+                    <div class="swiper-slide" style="background: white;">
+                        <div class="testimonial-item">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img src="@product.ImageUrl" class="img-fluid" alt="@product.Title Album Cover" />
+                                </div>
+                                <div class="col-md-6 p-4">
+                                    <h1 class="text-pink-500 fw-bold fs-1" style="color: blue;">@product.Title</h1>
+                                    <h2 class="text-secondary fs-4">@product.Author</h2>
+                                    
+                                    <div class="my-2">
+                                        @for (int i = 0; i < 5; i++)
+                                        {
+                                            <span class="text-warning">★</span>
+                                        }
+                                    </div>
+                                    
+                                    <div class="mt-4">
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <span class="text-muted">Release Date:</span>
+                                            <span>@product.ReleaseDate.ToString("dd/MM/yyyy")</span>
+                                        </div>
+                                        
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <span class="text-muted">Format:</span>
+                                            <span>Digital Album</span>
+                                        </div>
+                                      
+                                    </div>
+                                    
+                                    <div class="fs-3 fw-bold mt-4">
+                                        @product.Price<span class="fs-6 fw-normal">VND</span>
+                                    </div>
+                                    
+                                    <div class="d-flex mt-4 gap-2">
+                                        <button class="btn btn-pink flex-grow-1 d-flex align-items-center justify-content-center" style="background-color: blue;">
+                                            <i class="bi bi-cart me-2"></i> Thêm vào giỏ hàng
+                                        </button>
+                                        <button class="btn btn-outline-secondary d-flex align-items-center justify-content-center">
+                                            <i class="bi bi-heart me-2"></i> Yêu thích
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section>
+    <!-- /Testimonials Section -->
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+                <h2>Bộ Sưu Tập Đĩa Nhạc</h2>
+                <p><span>Khám phá các thể loại đĩa hiện có trong</span> <span class="description-title">cửa hàng</span></p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+            <li data-filter="*" class="filter-active">Tất cả</li>
+            <li data-filter=".filter-app">CD</li>
+            <li data-filter=".filter-product">DVD</li>
+            <li data-filter=".filter-branding">Vinyl</li>
+          </ul><!-- End Portfolio Filters -->
+
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <img src="/assets/img/masonry-portfolio/masonry-portfolio-1.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                                <h4>CD - Nhạc Trẻ</h4>
+                                <p>Top 10 đĩa nhạc trẻ hot nhất</p>
+                <a href="/assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1"
+                  data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                    class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+              <img src="/assets/img/masonry-portfolio/masonry-portfolio-2.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                                <h4>CD - Nhạc Trữ Tình</h4>
+                                <p>Những bản tình ca vượt thời gian</p>
+                <a href="/assets/img/masonry-portfolio/masonry-portfolio-2.jpg" title="Product 1"
+                  data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
+                    class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                    class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="/assets/img/masonry-portfolio/masonry-portfolio-3.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                                <h4>DVD - Liveshow Mỹ Tâm</h4>
+                                <p>Trọn bộ đêm nhạc "Tri Âm 2023"</p>
+                <a href="/assets/img/masonry-portfolio/masonry-portfolio-3.jpg" title="Branding 1"
+                  data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
+                    class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                    class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <img src="/assets/img/masonry-portfolio/masonry-portfolio-4.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                                <h4>DVD - Hài Xuân 2024</h4>
+                                <p>Thư giãn với các tiểu phẩm hài đặc sắc</p>
+                <a href="/assets/img/masonry-portfolio/masonry-portfolio-4.jpg" title="App 2"
+                  data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                    class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+              <img src="/assets/img/masonry-portfolio/masonry-portfolio-5.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                                <h4>Vinyl - Trịnh Công Sơn</h4>
+                                <p>Những bản nhạc xưa bất hủ trên đĩa than</p>
+                <a href="/assets/img/masonry-portfolio/masonry-portfolio-5.jpg" title="Product 2"
+                  data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
+                    class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                    class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="/assets/img/masonry-portfolio/masonry-portfolio-6.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                                <h4>Vinyl - Quốc tế</h4>
+                                <p>Những album vinyl huyền thoại như The Beatles, Elvis...</p>
+                <a href="/assets/img/masonry-portfolio/masonry-portfolio-6.jpg" title="Branding 2"
+                  data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
+                    class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                    class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <img src="/assets/img/masonry-portfolio/masonry-portfolio-7.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>App 3</h4>
+                <p>Lorem ipsum, dolor sit</p>
+                <a href="/assets/img/masonry-portfolio/masonry-portfolio-7.jpg" title="App 3"
+                  data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                    class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+              <img src="/assets/img/masonry-portfolio/masonry-portfolio-8.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Product 3</h4>
+                <p>Lorem ipsum, dolor sit</p>
+                <a href="/assets/img/masonry-portfolio/masonry-portfolio-8.jpg" title="Product 3"
+                  data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
+                    class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                    class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="/assets/img/masonry-portfolio/masonry-portfolio-9.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Branding 3</h4>
+                <p>Lorem ipsum, dolor sit</p>
+                <a href="/assets/img/masonry-portfolio/masonry-portfolio-9.jpg" title="Branding 2"
+                  data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
+                    class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                    class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+          </div><!-- End Portfolio Container -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Portfolio Section -->
+
+    <!-- Team Section -->
+    <section id="team" class="team section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Team</h2>
+                <p><span class="description-title">Đội ngũ </span><span>tận tâm đứng sau thành công của cửa hàng âm nhạc</span> </p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="/assets/img/team/team-1.jpg" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                                <h4>Trần Minh Hoàng</h4>
+                                <span>Giám đốc điều hành</span>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="/assets/img/team/team-2.jpg" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                                <h4>Nguyễn Thị Lan</h4>
+                                <span>Quản lý sản phẩm</span>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="/assets/img/team/team-3.jpg" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                                <h4>Phạm Văn Hưng</h4>
+                                <span>Trưởng bộ phận kỹ thuật</span>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="/assets/img/team/team-4.jpg" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Lê Kim Anh</h4>
+                <span>Kế toán</span>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Team Section -->
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+                <h2>Gói Dịch Vụ</h2>
+                <p><span>Chọn gói </span> <span class="description-title">thuê đĩa nhạc</span><span> phù hợp với nhu cầu của bạn</span></p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-3">
+
+          <div class="col-xl-3 col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="pricing-item">
+                            <h3>Gói Miễn Phí</h3>
+              <h4>0<sup>VNĐ</sup><span> / tháng</span></h4>
+              <ul>
+                                <li>Thuê 1 đĩa/tháng</li>
+                                <li>Chỉ áp dụng CD phổ thông</li>
+                                <li>Không hỗ trợ giao hàng miễn phí</li>
+                                <li class="na">Không truy cập kho đặc biệt</li>
+                                <li class="na">Không có ưu đãi thành viên</li>
+              </ul>
+              <div class="btn-wrap">
+                <a href="#" class="btn-buy">Đăng ký</a>
+              </div>
+            </div>
+          </div><!-- End Pricing Item -->
+
+          <div class="col-xl-3 col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="pricing-item featured">
+                            <h3>Gói Nâng Cao</h3>
+              <h4>199000<sup>VNĐ</sup><span> / tháng</span></h4>
+              <ul>
+                                <li>Thuê 8 đĩa/tháng (CD/DVD/Vinyl)</li>
+                                <li>Miễn phí vận chuyển toàn quốc</li>
+                                <li>Ưu đãi 10% khi mua đĩa</li>
+                                <li>Truy cập kho Vinyl</li>
+                                <li class="na">Không có bộ sưu tập giới hạn</li>
+              </ul>
+              <div class="btn-wrap">
+                <a href="#" class="btn-buy">Đăng ký</a>
+              </div>
+            </div>
+          </div><!-- End Pricing Item -->
+
+          <div class="col-xl-3 col-lg-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="pricing-item">
+                            <h3>Gói Cao Cấp</h3>
+              <h4>499000<sup>VNĐ</sup><span> / tháng</span></h4>
+              <ul>
+                                <li>Thuê không giới hạn</li>
+                                <li>Miễn phí vận chuyển toàn quốc</li>
+                                <li>Ưu đãi 20% khi mua đĩa</li>
+                                <li>Truy cập kho Vinyl & đặc biệt</li>
+                                <li>Bộ sưu tập giới hạn mỗi tháng</li>
+              </ul>
+              <div class="btn-wrap">
+                <a href="#" class="btn-buy">Đăng ký</a>
+              </div>
+            </div>
+          </div><!-- End Pricing Item -->
+
+          <div class="col-xl-3 col-lg-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="pricing-item">
+              <span class="advanced">VIP</span>
+              <h3>VIP</h3>
+              <h4>999000<sup>VNĐ</sup><span> / tháng</span></h4>
+              <ul>
+                                <li>Có các đặc quyền của gói nâng cao</li>
+                                <li>Ưu đãi 30% khi mua đĩa</li>
+                                <li>Tặng 1 đĩa gốc bất kỳ mỗi tháng</li>
+                                <li>Hỗ trợ riêng 24/7</li>
+              </ul>
+              <div class="btn-wrap">
+                <a href="#" class="btn-buy">Đăng ký</a>
+              </div>
+            </div>
+          </div><!-- End Pricing Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Pricing Section -->
+        <!-- Faq Section -->
+    <section id="faq" class="faq section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>F.A.Q</h2>
+                <p><span>Những </span> <span class="description-title">Câu hỏi</span> thường gặp về dịch vụ thuê đĩa nhạc</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row justify-content-center">
+
+          <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="faq-container">
+
+              <div class="faq-item faq-active">
+                                <h3>Làm sao để thuê một đĩa nhạc?</h3>
+                <div class="faq-content">
+                                    <p>Bạn chỉ cần đăng nhập, chọn đĩa bạn muốn thuê và nhấn nút "Thuê ngay". Đĩa sẽ được giao đến tận nơi hoặc có thể đến lấy trực tiếp tại cửa hàng.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                                <h3>Tôi có thể giữ đĩa bao lâu?</h3>
+                <div class="faq-content">
+                                    <p>Thời gian thuê tiêu chuẩn là 7 ngày. Bạn có thể gia hạn thêm nếu chưa có người đặt sau bạn.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                                <h3>Nếu làm mất hoặc làm hỏng đĩa thì sao?</h3>
+                <div class="faq-content">
+                                    <p>Bạn sẽ cần bồi thường theo giá trị hiện tại của đĩa hoặc theo chính sách được ghi rõ trong hợp đồng thuê.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                                <h3>Có đĩa nhạc hiếm hoặc giới hạn không? </h3>
+                <div class="faq-content">
+                                    <p>Có! Chúng tôi có bộ sưu tập đĩa hiếm dành riêng cho thành viên VIP. Bạn có thể đăng ký gói cao cấp để truy cập..</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                                <h3>Làm sao để trả đĩa sau khi thuê?</h3>
+                <div class="faq-content">
+                                    <p>Bạn có thể mang đến cửa hàng hoặc gửi qua bưu điện theo hướng dẫn trong tài khoản của bạn.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                                <h3>Tôi có thể gia hạn thời gian thuê đĩa không?</h3>
+                <div class="faq-content">
+                                    <p>Có. Bạn có thể gia hạn thêm 3 ngày cho mỗi đĩa nếu chưa có người đặt trước. Vào mục "Đĩa đang thuê", chọn đĩa cần gia hạn và nhấn nút "Gia hạn".</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+            </div>
+
+          </div><!-- End Faq Column-->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Faq Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Liên hệ</h2>
+        <p><span>Banj cần hỗ trợ?</span> <span class="description-title"> Liên hệ với chúng tôi</span></p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-5">
+
+            <div class="info-wrap">
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+                <i class="bi bi-geo-alt flex-shrink-0"></i>
+                <div>
+                  <h3>Địa chỉ</h3>
+                  <p>Lĩnh Nam, Hoàng Mai, Hà Nội</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                <i class="bi bi-telephone flex-shrink-0"></i>
+                <div>
+                  <h3>Số điện thoại </h3>
+                  <p>+84 0123 555 789</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                <i class="bi bi-envelope flex-shrink-0"></i>
+                <div>
+                  <h3>Email</h3>
+                  <p>rentamusic@example.com</p>
+                </div>
+              </div><!-- End Info Item -->
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1004129.600568805!2d105.78149789742379!3d21.106090052697944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ae9414f1a633%3A0xd308293e3a7842c9!2zTMSpbmggTmFtLCBIb8OgbmcgTWFpLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1746713115103!5m2!1svi!2s" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up"
+              data-aos-delay="200">
+              <div class="row gy-4">
+
+                <div class="col-md-6">
+                  <label for="name-field" class="pb-2">Họ tên</label>
+                  <input type="text" name="name" id="name-field" class="form-control" required="">
+                </div>
+
+                <div class="col-md-6">
+                  <label for="email-field" class="pb-2">Email</label>
+                  <input type="email" class="form-control" name="email" id="email-field" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <label for="subject-field" class="pb-2">Tiêu đề</label>
+                  <input type="text" class="form-control" name="subject" id="subject-field" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <label for="message-field" class="pb-2">Nội dung (gửi tin nhắn)</label>
+                  <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Tin nhắn của bạn đã được gửi đến chúng tôi. Xin cảm ơn !</div>
+
+                  <button type="submit">Gửi tin nhắn</button>
+                </div>
+
+              </div>
+            </form>
+          </div><!-- End Contact Form -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+  </main>
+  <footer id="footer" class="footer">
+
+    <div class="footer-newsletter">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-6">
+                        <h4>Đăng ký nhận thông tin</h4>
+                        <p>Nhận thông tin mới nhất về đĩa CD/DVD/Vinyl, ưu đãi và bộ sưu tập giới hạn mỗi tháng!</p>
+            <form action="forms/newsletter.php" method="post" class="php-email-form">
+              <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe">
+              </div>
+              <div class="loading">Đang gửi...</div>
+              <div class="error-message"></div>
+                            <div class="sent-message">Đăng ký thành công! Cảm ơn bạn đã quan tâm.</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="d-flex align-items-center">
+            <span class="sitename">RentaMusic</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>Lĩnh Nam</p>
+            <p>Hoang Mai, Hà Nội</p>
+            <p class="mt-3"><strong>SDT:</strong> <span>+84 345 667 777</span></p>
+            <p><strong>Email:</strong> <span>rentamusic@example.com</span></p>
+          </div>
+        </div>
+
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4>Liên kết nhanh</h4>
+                    <ul>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#">Trang chủ</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#">Giới thiệu</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#">Dịch vụ</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#">Điều khoản sử dụng</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4>Dịch vụ của chúng tôi</h4>
+                    <ul>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#">Thuê đĩa CD/DVD/Vinyl</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#">Mua bán đĩa sưu tầm</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#">Gợi ý & quản lý bộ sưu tập</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#">Ưu đãi & thành viên VIP</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-12">
+                    <h4>Kết nối với chúng tôi</h4>
+                    <p>Đừng bỏ lỡ các bản phát hành mới, ưu đãi đặc biệt và bộ sưu tập giới hạn từ chúng tôi!</p>
+                    <div class="social-links d-flex">
+                        <a href="#"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+
+      </div>
+    </div>
+
+    
+  </footer>
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+  <!-- Preloader -->
+  <div id="preloader">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  </body>

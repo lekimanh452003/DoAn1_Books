@@ -1,0 +1,204 @@
+﻿@model OrderVM
+<partial name="_Notification" />
+<partial name="_ValidationScriptsPartial" />
+
+<link href="~/assets/css/site.css" rel="stylesheet" />
+
+<form method="post">
+    <input asp-for="OrderHeader.Id" hidden />
+    <a asp-action="Index" class="btn-outline">Quay Lại Đơn Hàng</a>
+    <div class="order-container">
+        <!-- Thông Tin Khách Hàng -->
+        <div class="card">
+            <div class="card-header">Thông Tin Khách Hàng</div>
+            <div class="card-body">
+                <div class="form-group">
+                    <div class="form-label">Tên</div>
+                    @if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
+                    {
+                        <input asp-for="OrderHeader.FullName" type="text" class="form-control" />
+                        <span asp-validation-for="OrderHeader.FullName" class="tetx-danger"></span>
+                    }
+                    else
+                    {
+                        <input asp-for="OrderHeader.FullName" type="text" readonly class="form-control" />
+                    }
+                </div>
+                <div class="form-group">
+                    <div class="form-label">Điện thoại</div>
+                    @if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
+                    {
+                        <input asp-for="OrderHeader.PhoneNumber" type="text" class="form-control" />
+                        <span asp-validation-for="OrderHeader.PhoneNumber" class="tetx-danger"></span>
+                    }
+                    else
+                    {
+                        <input asp-for="OrderHeader.PhoneNumber" type="text" readonly class="form-control" />
+                    }
+                </div>
+                <div class="form-group">
+                    <div class="form-label">Email</div>
+                    @if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
+                    {
+                        <input asp-for="OrderHeader.ApplicationUser.Email" type="text" class="form-control" />
+                        <span asp-validation-for="OrderHeader.ApplicationUser.Email" class="tetx-danger"></span>
+                    }
+                    else
+                    {
+                        <input asp-for="OrderHeader.ApplicationUser.Email" type="text" readonly class="form-control" />
+                    }
+                </div>
+                <div class="form-group">
+                    <div class="form-label">Địa chỉ</div>
+                    @if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
+                    {
+                        <input asp-for="OrderHeader.Address" type="text" class="form-control" />
+                        <span asp-validation-for="OrderHeader.Address" class="tetx-danger"></span>
+                    }
+                    else
+                    {
+                        <input asp-for="OrderHeader.Address" type="text" readonly class="form-control" />
+                    }
+                </div>
+                <div class="form-group">
+                    <div class="form-label">Đơn vị vận chuyển</div>
+                    @if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
+                    {
+                        <input asp-for="OrderHeader.Carrier" type="text" class="form-control" />
+                        <span asp-validation-for="OrderHeader.Carrier" class="tetx-danger"></span>
+                    }
+                    else
+                    {
+                        <input asp-for="OrderHeader.Carrier" type="text" readonly class="form-control" />
+                    }
+                </div>
+                <div class="form-group">
+                    <div class="form-label">Mã vận đơn</div>
+                    @if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
+                    {
+                        <input asp-for="OrderHeader.CheckingNumber" type="text" class="form-control" />
+                        <span asp-validation-for="OrderHeader.CheckingNumber" class="tetx-danger"></span>
+                    }
+                    else
+                    {
+                        <input asp-for="OrderHeader.CheckingNumber" type="text" readonly class="form-control" />
+                    }
+                </div>
+                
+
+                <div class="form-group">
+                    <div class="form-label">Ngày đặt hàng</div>
+                    <input value="@Model.OrderHeader.OrderDate.ToShortDateString()" type="text" readonly class="form-control" />
+                </div>
+                <div class="form-group">
+                    <div class="form-label">Duyệt đơn hàng</div>
+                    <input asp-for="OrderHeader.PaymentStatus" type="text" readonly class="form-control" />
+                </div>
+
+                @if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
+                {
+                    <button type="submit" asp-action="UpdateOrderDetail" class="update-button">CẬP NHẬT THÔNG TIN</button>
+                }
+            </div>
+        </div>
+
+        <!-- Thông Tin Đơn Hàng -->
+        <div class="card order-summary">
+            <div class="card-header">Thông Tin Đơn Hàng</div>
+            <div class="card-body">
+                <div class="status-badge @Model.OrderHeader.OrderStatus.ToLower()">@Model.OrderHeader.OrderStatus</div>
+
+                @foreach (var item in Model.OrderDetail)
+                {
+                    <div class="summary-item">
+                        <div>@item.Product.Title</div>
+                        <div>@item.Count x</div>
+                        <div>@item.Price.ToString("N0") đ</div>
+                    </div>
+                }
+
+                <div class="order-total-summary">
+                                          <p><span>Tạm tính:</span> <span>@Model.SubTotal.ToString("N0") đ</span></p>
+                    <p><span>Giảm giá:</span> <span>-@Model.DiscountAmount.ToString("N0") đ</span></p>
+                    <p><span>Phí dịch vụ:</span> <span>@Model.ServiceFee.ToString("N0") đ</span></p>
+                    <h5><span>Tổng cộng:</span> <span>@Model.OrderHeader.OrderTotal.ToString("N0") đ</span></h5>
+                </div>
+
+                <div class="payment-info">
+                    <div class="form-group">
+                        <div class="form-label">Đơn vị vận chuyển</div>
+                        @if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
+                        {
+                            <input asp-for="OrderHeader.Carrier" id="carier" type="text" class="form-control" />
+                        }
+                        else
+                        {
+                            <input asp-for="OrderHeader.Carrier" type="text" readonly class="form-control" />
+                        }
+                    </div>
+                    <div class="form-group">
+                        <div class="form-label">Mã vận đơn</div>
+                        @if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
+                        {
+                            <input asp-for="OrderHeader.CheckingNumber" id="checkingNumber" type="text" class="form-control" />
+                        }
+                        else
+                        {
+                            <input asp-for="OrderHeader.CheckingNumber" type="text" readonly class="form-control" />
+                        }
+                    </div>
+                    <div class="form-group">
+                        <div class="form-label">Ngày giao hàng</div>
+                        <input value="@Model.OrderHeader.ShippingDate.ToLongDateString()" type="text" readonly class="form-control" />
+                    </div>
+
+                    @if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
+                    {
+                        <div class="action-buttons">
+                            @if (Model.OrderHeader.OrderStatus == SD.StatusApproved)
+                            {
+                                <button type="submit" asp-action="StartProcessing" class="btn btn-pay">XỬ LÝ THANH TOÁN</button>
+                            }
+                            @if (Model.OrderHeader.OrderStatus == SD.StatusInProcess)
+                            {
+                                <button type="submit" onclick="return validateInput" asp-action="ShipOrder" class="btn btn-ship">GIAO HÀNG</button>
+                            }
+                            @if (Model.OrderHeader.OrderStatus != SD.StatusRefunded &&
+                           Model.OrderHeader.OrderStatus != SD.StatusCancelled &&
+                           Model.OrderHeader.OrderStatus != SD.StatusShipped)
+                            {
+                                <button type="submit" asp-action="CancelOrder" class="btn btn-cancel">HỦY ĐƠN HÀNG</button>
+                            }
+                        </div>
+                    }
+                  
+                </div>
+            </div>
+        </div>
+    </form>
+    @section Scripts{
+               <script>
+                function validateInput() {
+                    if (document.getElementById("carrier").Value=="" {
+                       Swal.fire({
+                   icon: 'error',
+                    title: 'Oops...',
+                    text: 'Vui lòng nhập đơn vị vận chuyển!',
+                })
+                       })
+                    }
+                    return false;
+                }
+         function validateInput() {
+            if (document.getElementById("trackingNumber").Value=="" {
+               Swal.fire({
+           icon: 'error',
+            title: 'Oops...',
+            text: 'Vui lòng nhập mã vận đơn!',
+        })
+               })
+            }
+            return false;
+        }
+               </script>
+    }

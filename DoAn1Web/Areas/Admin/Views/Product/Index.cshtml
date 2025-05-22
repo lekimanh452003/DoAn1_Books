@@ -1,0 +1,35 @@
+﻿@model List<Product>
+<partial name="_Notification" />
+<div class="container">
+	
+	<div class="row pt-4 pb-2">
+		<div class="col-6">
+			<h2>Danh sách </h2>
+		</div>
+		<div class="btn-buy">
+			<a asp-controller="Product" asp-action="Upsert" class="btn upload-button">
+				<i class="bi bi-cloud-plus me-1"></i> Thêm sách
+			</a>
+		</div>
+	</div>
+	<table id="tblData" class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th>Tên sách</th>
+				<th>Tác giả</th>
+				<th>Đơn giá</th>
+				<th>Ngày phát hành</th>
+				<th>Thể loại </th>
+				<th class="text-end">
+
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+		</tbody>
+	</table>
+</div>
+@section Scripts {
+	<script src="~/js/product.js"></script>
+}

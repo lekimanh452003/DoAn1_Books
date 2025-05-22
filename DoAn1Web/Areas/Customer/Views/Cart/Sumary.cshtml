@@ -1,0 +1,102 @@
+﻿@model ShoppingCartVM
+<link href="~/assets/css/site.css" rel="stylesheet" />
+
+<form asp-action="Sumary" method="post">
+
+        <div class="main-content">
+            <div class="shipping-section">
+                <h2 class="section-title">Thông tin giao hàng</h2>
+
+                <div class="form-group">
+            <label asp-for="OrderHeader.ApplicationUser.FullName" class="form-label">Họ tên</label>
+            <input asp-for="OrderHeader.ApplicationUser.FullName" class="form-control" />
+                </div>
+
+                <div class="form-group">
+            <label asp-for="OrderHeader.ApplicationUser.PhoneNumber" class="form-label">Số điện thoại</label>
+            <input asp-for="OrderHeader.ApplicationUser.PhoneNumber" class="form-control" />
+                <span asp-validation-for="OrderHeader.ApplicationUser.PhoneNumber" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+            <label asp-for="OrderHeader.ApplicationUser.Address" class="form-label">Địa chỉ</label>
+            <input asp-for="OrderHeader.ApplicationUser.Address" class="form-control" />
+                </div>
+
+                <div class="delivery-date">
+                    <h3>Thời gian giao hàng dự kiến:</h3>
+                    <p>@DateTime.Now.AddDays(5).ToShortDateString()- @DateTime.Now.AddDays(10).ToShortDateString()</p>
+                </div>
+            </div>
+
+            <div class="order-summary-section">
+                <h2 class="section-title">Tóm tắt đơn hàng</h2>
+
+                <table class="order-summary-table">
+                    <thead>
+                        <tr>
+                            <th>Sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Thành tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.ShoppingCartList)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="product-title d-flex align-items-center">
+                                        <img src="@item.Product.ImageUrl" alt="@item.Product.Title" class="product-image me-2" style="width: 50px; height: 50px; object-fit: cover;">
+                                        <div>
+                                            <div class="fw-bold">@item.Product.Title</div>
+                                            <small class="text-muted">@item.Product.Author</small><br />
+                                            
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>@item.Count</td>
+                                <td>
+                                    @string.Format("{0:N0} VNĐ", item.Product.Price * item.Count )
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            <div class="costs-breakdown">
+                <div class="cost-row">
+                    <span class="cost-label">Tạm tính:</span>
+                    <span class="cost-value">@Model.SubTotal.ToString("N0") VNĐ</span>
+                </div>
+
+                <div class="cost-row">
+                    <span class="cost-label">Giảm giá (@((int)(Model.DiscountRate * 100))%):</span>
+                    <span class="cost-value">-@Model.DiscountAmount.ToString("N0") VNĐ</span>
+                </div>
+                <div class="cost-row">
+                    <span class="cost-label">Phí dịch vụ:</span>
+                    <span class="cost-value">@Model.ServiceFee.ToString("N0") VNĐ</span>
+                </div>
+            </div>
+            <div class="total-row">
+                <span>Tổng cộng:</span>
+                <span>@Model.TotalAmount.ToString("N0") VNĐ</span>
+            </div>
+
+                <div class="payment-methods">
+                    <label class="payment-method active">
+                        <input type="radio" name="payment" checked>
+                <span>Paypal</span>
+                    </label>
+                    <label class="payment-method">
+                        <input type="radio" name="payment">
+                        <span>Tiền mặt</span>
+                    </label>
+                  
+                </div>
+
+                <button type="submit" class="place-order-btn">XÁC NHẬN ĐẶT HÀNG</button>
+            </div>
+        </div>
+ </form>
+

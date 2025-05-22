@@ -1,0 +1,45 @@
+﻿@model Category
+<div class="card shadow border-0 mt-4 ">
+	<div class="card-header bg-secondary bg-gradient ml-0 py-3">
+		<div class="row">
+			<div class="col-12 text center">
+				<h2 class="text" >Thêm danh mục</h2>
+			</div>
+		</div>
+	</div>
+	<div class="card-body p-4">
+		<form method="post" class="row">
+			@* <input asp-for="MaTheLoai" hidden/> *@
+			<div class="border p-3 mt-4">
+				<div class="row pb-2">
+					
+					</hr>
+				</div>
+				
+				<div class="mb-3 row">
+					<label asp-for="CategoryName" class="p-0">Thể loại</label>
+					<input asp-for="CategoryName" class="form-control" />
+					<span asp-validation-for="CategoryName" class="text-danger"></span>
+				</div>
+				<div class="mb-3 row">
+					<label asp-for="DisplayOrder" class="p-0">Hiển thị</label>
+					<input asp-for="DisplayOrder" class="form-control" />
+					<span asp-validation-for="DisplayOrder" class="text-danger"></span>
+				</div>
+				<div class="row">
+					<button type="submit" class="btn btn-primary border form-control" style="width:50%">Thêm</button>
+
+					<a asp-controller="Category" asp-action="Index" class="btn btn-secondary border form-control" style="width:50%">
+						Trở lại
+					</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+	@section Scripts{
+		@{
+			<partial name="_ValidationScriptsPartial" />
+		}
+	}

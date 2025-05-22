@@ -1,0 +1,42 @@
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<ul class="navbar-nav">
+@if (SignInManager.IsSignedIn(User))
+{
+        <li class="nav-item dropdown position-relative">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-person-circle fs-5 me-1"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-start text-start">
+                <li>
+                    <a id="manage" class="dropdown-item text-start" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
+                        @UserManager.GetUserName(User)
+                    </a>
+                </li>
+                <li>
+                    <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <button id="logout" type="submit" class="dropdown-item text-start w-100 border-0 bg-transparent">
+                            Đăng xuất
+                        </button>
+                    </form>
+                </li>
+            </ul>
+        </li>
+
+}
+else
+{
+        <li class="nav-item dropdown position-relative">
+            <a href="javascript:void(0)">
+                <span>Tài khoản</span> <i class="bi bi-chevron-down toggle-dropdown"></i>
+            </a>
+            <ul class="dropdown-menu custom-dropdown">
+                <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Login">Đăng nhập</a></li>
+                <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Register">Đăng ký</a></li>
+            </ul>
+        </li>
+}
+</ul>

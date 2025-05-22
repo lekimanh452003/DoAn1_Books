@@ -1,0 +1,77 @@
+﻿@{
+	var status = Context.Request.Query["status"];
+	var inprocess = "text-primary";
+	var paymentpending = "text-primary";
+	var completed = "text-primary";
+	var approved = "text-primary";
+	var all = "text-primary";
+	switch (status)
+	{
+		case "inprocess":
+			inprocess = "active text-white bg-primary";
+			break;
+		case "paymentpending":
+			paymentpending = "active text-white bg-primary";
+			break;
+		case "completed":
+			completed = "active text-white bg-primary";
+			break;
+		case "approved":
+			approved = "active text-white bg-primary";
+			break;
+		default:
+			all = "active text-white bg-primary"; 
+			break;
+	}
+
+}
+	<div class="container">
+
+	<div class="row pt-4 pb-2">
+		<div class="col-6">
+			<h2>Danh sách đơn hàng</h2>
+		</div>
+		
+	</div>
+	<div class="d-flex justify-content-between pb-4">
+		<ul class="list-group list-group-horizontal-sm">
+			<a style="text-decoration:none;" asp-controller="Order" asp-action="Index" asp-route-status="all">
+			<li class="list-group-item @all">Tất cả</li>
+			</a>
+				<a style="text-decoration:none;" asp-controller="Order" asp-action="Index" asp-route-status="inprocess">
+				<li class="list-group-item @inprocess">Đang xử lý</li>
+				</a>
+				<a style="text-decoration:none;" asp-controller="Order" asp-action="Index" asp-route-status="paymentpending">
+				<li class="list-group-item @paymentpending">Chờ thanh toán</li>
+				</a>
+				<a style="text-decoration:none;" asp-controller="Order" asp-action="Index" asp-route-status="completed">
+				<li class="list-group-item @completed">Hoàn thành</li>
+				</a>
+				<a style="text-decoration:none;" asp-controller="Order" asp-action="Index" asp-route-status="approved">
+				<li class="list-group-item @approved">Đã duyệt</li>
+				</a>
+		</ul>
+	</div>
+
+	<table id="tblData" class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Tên</th>
+				<th>Số điện thoại</th>
+				<th>Email</th>
+				<th>Địa chỉ</th>
+				<th>Trạng thái đơn hàng</th>
+				<th>Tổng đơn hàng</th>
+				<th class="text-end">
+
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+</div>
+@section Scripts {
+	<script src="~/js/order.js"></script>
+}

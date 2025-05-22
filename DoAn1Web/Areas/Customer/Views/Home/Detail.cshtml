@@ -1,0 +1,289 @@
+﻿@model web.Models.ShoppingCart
+<head>
+    <title>Chi tiết đĩa nhạc - @Model.Product.Title</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .product-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            background-color: white;
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .product-title {
+            color: white;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .product-img-container {
+            position: relative;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .product-img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+            .product-img:hover {
+                transform: scale(1.03);
+            }
+
+        .info-label {
+            color: #6c757d;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-value {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #e9ecef;
+            font-weight: 500;
+        }
+
+        .info-section {
+            padding: 2rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+            .btn-primary:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 5px 15px rgba(37, 117, 252, 0.4);
+            }
+
+        .btn-secondary {
+            background: #f8f9fa;
+            color: #495057;
+            border: 1px solid #ced4da;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+            .btn-secondary:hover {
+                background: #e9ecef;
+                transform: translateY(-3px);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+
+        .btn i {
+            margin-right: 0.5rem;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .badge-available {
+            background-color: #d1e7dd;
+            color: #0f5132;
+        }
+
+        .badge-unavailable {
+            background-color: #f8d7da;
+            color: #842029;
+        }
+
+        .price-tag {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2575fc;
+        }
+
+        .divider {
+            height: 1px;
+            background-color: #e9ecef;
+            margin: 1rem 0;
+        }
+
+        .artist-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .artist-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+
+        .artist-name {
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+
+        .btn-action-container {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .quantity-input {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+
+            .quantity-input button {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+                color: white;
+                border: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.25rem;
+                cursor: pointer;
+                transition: all 0.2s ease;
+            }
+
+                .quantity-input button:hover {
+                    transform: scale(1.05);
+                    box-shadow: 0 2px 8px rgba(37, 117, 252, 0.4);
+                }
+
+            .quantity-input input {
+                width: 80px;
+                height: 40px;
+                text-align: center;
+                font-weight: 600;
+                border: 1px solid #e9ecef;
+                border-radius: 8px;
+                margin: 0 0.5rem;
+            }
+
+                .quantity-input input:focus {
+                    outline: none;
+                    border-color: #2575fc;
+                    box-shadow: 0 0 0 2px rgba(37, 117, 252, 0.2);
+                }
+    </style>
+</head>
+<body>
+    <form method="post">
+    <div class="container">
+        <div class="product-card">
+            <div class="card-header">
+                <h2 class="product-title">Thông tin đĩa nhạc</h2>
+            </div>
+
+            <div class="row g-0">
+                <!-- Hình ảnh sản phẩm -->
+                <div class="col-lg-4">
+                    <div class="product-img-container">
+                        <img src="@Model.Product.ImageUrl" class="product-img" alt="@Model.Product.Title" />
+
+                        <div class="text-center mt-4">
+                            <p class="price-tag">@String.Format("{0:N0} VNĐ", Model.Product.Price)</p>
+                        </div>
+                            <div class="text-center mt-4">
+                                <p class="info-label">Số lượng mua</p>
+                                <div class="quantity-input">
+                                    <button type="button" onclick="decreaseQuantity()"><i class="bi bi-dash"></i></button>
+                                    <input asp-for="Count" type="number" id="rentQuantity" value="1" min="1" max="100">
+                                    <button type="button" onclick="increaseQuantity()"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+
+                <!-- Thông tin sản phẩm -->
+                <div class="col-lg-8">
+                    <div class="info-section">
+                        <h3 class="mb-4">@Model.Product.Title</h3>
+
+                        <div class="artist-info">
+                            <div class="artist-avatar">
+                                <i class="bi bi-person-fill fs-4"></i>
+                            </div>
+                            <p class="artist-name">@Model.Product.Author</p>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="info-label">Thể loại</p>
+                                <div class="info-value">
+                                    <i class="bi bi-music-note-beamed"></i> @Model.Product.Category.CategoryName
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <p class="info-label">Ngày phát hành</p>
+                                <div class="info-value">
+                                    <i class="bi bi-calendar-event"></i> @Model.Product.ReleaseDate.ToString("dd/MM/yyyy")
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                           
+
+                            <div class="col-md-6">
+                                <p class="info-label">Mã đĩa</p>
+                                <div class="info-value">
+                                    <i class="bi bi-upc-scan"></i> #@Model.Id.ToString("D6")
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <div class="btn-action-container">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-pencil-square"></i> Mua ngay
+                            </button>
+                            <a asp-area="Customer" asp-controller="Home" asp-action="Index" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left"></i> Trở lại
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>

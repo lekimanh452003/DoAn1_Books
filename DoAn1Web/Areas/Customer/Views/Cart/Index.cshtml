@@ -1,0 +1,360 @@
+﻿@model ShoppingCartVM
+@{
+    ViewData["Title"] = "Giỏ hàng thuê đĩa";
+}
+<partial name="_Notification" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .cart-container {
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin: 2rem auto;
+        padding: 2rem;
+    }
+
+    .cart-header {
+        border-bottom: 2px solid #f1f1f1;
+        padding-bottom: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .cart-title {
+        font-weight: 700;
+        color: #2575fc;
+        margin-bottom: 0;
+    }
+
+    .cart-item {
+        border-radius: 10px;
+        background-color: #ffffff;
+        border: 1px solid #e9ecef;
+        margin-bottom: 1.5rem;
+        transition: all 0.3s ease;
+    }
+
+        .cart-item:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+    .cart-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px 0 0 10px;
+    }
+
+    .cart-img-container {
+        height: 130px;
+        overflow: hidden;
+    }
+
+    .cart-item-title {
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        color: #212529;
+    }
+
+    .cart-item-artist {
+        color: #6c757d;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .cart-item-price {
+        font-weight: 700;
+        color: #2575fc;
+    }
+
+    .cart-item-quantity {
+        display: flex;
+        align-items: center;
+    }
+
+    .quantity-btn {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        color: white;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+        .quantity-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 8px rgba(37, 117, 252, 0.4);
+        }
+
+        .quantity-btn:disabled {
+            background: #e9ecef;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+    .quantity-input {
+        width: 50px;
+        height: 30px;
+        text-align: center;
+        font-weight: 600;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        margin: 0 0.5rem;
+    }
+
+        .quantity-input:focus {
+            outline: none;
+            border-color: #2575fc;
+            box-shadow: 0 0 0 2px rgba(37, 117, 252, 0.2);
+        }
+
+    .cart-actions {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .remove-btn {
+        color: #dc3545;
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+        .remove-btn:hover {
+            transform: scale(1.1);
+        }
+
+    .cart-subtotal {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .cart-total {
+        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        color: white;
+        border-radius: 10px;
+        padding: 1.5rem;
+    }
+
+    .cart-total-title {
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    .cart-total-price {
+        font-size: 1.8rem;
+        font-weight: 700;
+    }
+
+    .cart-empty {
+        text-align: center;
+        padding: 3rem 0;
+    }
+
+    .cart-empty-icon {
+        font-size: 4rem;
+        color: #dee2e6;
+        margin-bottom: 1rem;
+    }
+
+    .cart-empty-text {
+        color: #6c757d;
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(37, 117, 252, 0.4);
+        }
+
+    .btn-outline {
+        background: transparent;
+        color: #6c757d;
+        border: 1px solid #ced4da;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+        .btn-outline:hover {
+            background: #f8f9fa;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+    .text-gradient {
+        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .rental-date-container {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+        font-weight: 600;
+        color: #495057;
+    }
+
+    .form-control:focus {
+        border-color: #2575fc;
+        box-shadow: 0 0 0 0.2rem rgba(37, 117, 252, 0.25);
+    }
+
+    .validation-message {
+        color: #dc3545;
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+    }
+</style>
+
+<div class="container">
+    <div class="cart-container">
+        <div class="cart-header d-flex justify-content-between align-items-center">
+            <h2 class="cart-title">
+                <i class="bi bi-cart3 me-2"></i> Giỏ hàng
+            </h2>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-outline">
+                <i class="bi bi-arrow-left me-2"></i> Tiếp tục mua
+            </a>
+        </div>
+
+        @if (Model != null && Model.ShoppingCartList != null && Model.ShoppingCartList.Any())
+        {
+            <form  method="post">
+              
+
+                <!-- Cart Items -->
+                <div class="cart-items mb-4">
+                    @foreach (var item in Model.ShoppingCartList)
+                    {
+                        <div class="cart-item p-3">
+                            <div class="row align-items-center">
+                                <div class="col-md-2">
+                                    <div class="cart-img-container">
+                                        <img src="@item.Product.ImageUrl" alt="@item.Product.Title" class="cart-img">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5 class="cart-item-title">@item.Product.Title</h5>
+                                    <p class="cart-item-artist">@item.Product.Author</p>
+                                   
+                                </div>
+                                <div class="col-md-2 text-center">
+                                    <p class="cart-item-price">@string.Format("{0:N0} VNĐ", item.Product.Price)</p>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="cart-item-quantity">
+                                        <a asp-action="minus" class="quantity-btn decrease-btn" asp-route-cartId="@item.Id">
+                                            <i class="bi bi-dash"></i>
+                                        </a>
+                                        <input type="number" class="quantity-input" value="@item.Count" min="1" max="100" readonly>
+                                        <a asp-action="plus" class="quantity-btn increase-btn" asp-route-cartId="@item.Id">
+                                            <i class="bi bi-plus"></i>
+                                        </a>
+                                        <a asp-action="remove" asp-route-cartId="@item.Id" class="remove-btn">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="cart-actions">
+                                        <span class="fw-bold text-end d-block mb-2">
+                                            @string.Format("{0:N0} VNĐ", Convert.ToDecimal(item.Product.Price) * item.Count)
+                                        </span>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <!-- Cart Summary -->
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="mb-3">
+                            <label asp-for="Notes" class="form-label"></label>
+                            <textarea asp-for="Notes" class="form-control" rows="3"
+                                      placeholder="Nhập ghi chú đặc biệt cho đơn hàng (nếu có)"></textarea>
+                            <span asp-validation-for="Notes" class="validation-message"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                       
+                        <div class="costs-breakdown">
+                            <div class="cost-row">
+                                <span class="cost-label">Tạm tính:</span>
+                                <span class="cost-value">@Model.SubTotal.ToString("N0") VNĐ</span>
+                            </div>
+
+                            <div class="cost-row">
+                                <span class="cost-label">Giảm giá (@((int)(Model.DiscountRate * 100))%):</span>
+                                <span class="cost-value">-@Model.DiscountAmount.ToString("N0") VNĐ</span>
+                            </div>
+                            <div class="cost-row">
+                                <span class="cost-label">Phí dịch vụ:</span>
+                                <span class="cost-value">@Model.ServiceFee.ToString("N0") VNĐ</span>
+                            </div>
+                        </div>
+                        <div class="total-row">
+                            <span>Tổng cộng:</span>
+                            <span>@Model.TotalAmount.ToString("N0") VNĐ</span>
+                        </div>
+                        <div class="d-grid gap-2 mt-3">
+
+                            <a  asp-action="Sumary" class="btn btn-primary">
+                                <i class="bi bi-credit-card me-2"></i> Đặt hàng
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        }
+        else
+        {
+            <div class="cart-empty">
+                <i class="bi bi-cart-x cart-empty-icon"></i>
+                <h3 class="cart-empty-text">Giỏ hàng của bạn đang trống</h3>
+                <a asp-controller="Home" asp-action="Index" class="btn btn-primary">
+                    <i class="bi bi-disc me-2"></i> Khám phá sách mới
+                </a>
+            </div>
+        }
+    </div>
+</div>
+
